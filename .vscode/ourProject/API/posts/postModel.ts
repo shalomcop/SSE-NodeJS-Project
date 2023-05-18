@@ -19,6 +19,13 @@ export const PostSchema = new Schema({
   metaDate:{require:true, type:Date};
 });
 
-const PostModel = mongoose.model("posts", PostSchema);
+export const UserPostSchema = new Schema({
+  user:UserSchema,
+  post:PostSchema,
+});
+
+
+export const PostModel = mongoose.model("posts", PostSchema);
+export const UserPostModel = mongoose.model("user-post", UserPostSchema);
 
 export default PostModel;
