@@ -1,4 +1,4 @@
-import UserModel from "./usersModel";
+import UserModel from "./userModel";
 // import jwt from 'jwt-simple';
 const secret = process.env.JWT_SECRET;
 
