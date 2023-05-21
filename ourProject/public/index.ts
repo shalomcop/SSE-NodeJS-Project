@@ -78,7 +78,7 @@ interface User {
     }
   }
   
-  function handleAddUser(ev: any) {
+  function handleAddPost(ev: any) {
     try {
       ev.preventDefault();
       console.log(ev.target.elements)
