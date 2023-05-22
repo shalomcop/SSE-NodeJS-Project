@@ -1,3 +1,7 @@
+tinymce.init({
+  selector: '#myTextarea'
+});
+
 interface User {
     name: string;
     src: string;
@@ -41,6 +45,8 @@ interface User {
       console.error(error);
     }
   }
+ 
+  
   
   function renderUser(user: User) {
     try {
