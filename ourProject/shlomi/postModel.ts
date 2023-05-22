@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { UserSchema } from "../users/userModel";
+// import { UserSchema } from "../users/userModel";
 
 export interface Post {
   title: string;
@@ -20,7 +20,7 @@ export const PostSchema = new Schema({
 });
 
 export const UserPostSchema = new Schema({
-  user:UserSchema,
+  // user:UserSchema,
   post:PostSchema,
 });
 

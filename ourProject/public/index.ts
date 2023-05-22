@@ -170,6 +170,7 @@ interface User {
     }
   }
   
+  
   function handleUpdateUserType(ev: any, userId: string) {
     try {
       const userType = ev.target.value;
