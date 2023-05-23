@@ -1,3 +1,6 @@
+// tinymce.init({
+//   selector: '#myTextarea'
+// });
 function handleGetUsers() {
     console.log("test");
     try {
