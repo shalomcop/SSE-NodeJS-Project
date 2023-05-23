@@ -1,3 +1,7 @@
+// tinymce.init({
+//   selector: '#myTextarea'
+// });
+
 interface User {
   name: string;
   password: string;

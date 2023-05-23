@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../tinymce_6.4.2/tinymce/js/tinymce/tinymce.min.js" defer></script>
+    <link rel="stylesheet" href="./dist/sytle.css">
+    <script src="./dist/index.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Start your first post..!</h2><br>
+    
+    <form onsubmit="handleAddPost(event)">
+        <textarea rows = "1" cols = "160" name = "title">
+            Enter the posts title
+         </textarea><br><br><br>
+        <textarea rows = "3" cols = "160" name = "description">
+           Enter the post description
+        </textarea><br><br><br>
+        <input type="text" name="mainPicture" placeholder="Enter your picture's url" required> <br><br>
+        <textarea rows = "10" cols = "160" name = "description">
+            Write your post here
+         </textarea><br><br><br>
+         <textarea id="myTextarea"></textarea>
+         <input type="date" name="date" placeholder="Enter the current date" required> <br><br>
+        <button type="submit">Submit your post</button>
+    </form>
+ 
+
+</body>
+</html>
