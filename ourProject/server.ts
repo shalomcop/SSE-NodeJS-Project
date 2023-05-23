@@ -5,7 +5,7 @@ import mongoose, { Schema } from "mongoose";
 import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 import cookieParser from 'cookie-parser';
-// const uri: string | undefined = process.env.MONGODB_URI;
+const uri: string | undefined = process.env.MONGODB_URI;
 
 
 //static file
@@ -16,13 +16,13 @@ app.use(express.static("./public"));
 app.use(cookieParser())
 
 
-// if (uri) { mongoose.connect(uri)
-//     .then(() => {
-//       console.log("DB connected!");})
-//     .catch((err) => console.log(err));
-// } else {
-//   console.log("No URI to DB");
-// }
+if (uri) { mongoose.connect(uri)
+    .then(() => {
+      console.log("DB connected!");})
+    .catch((err) => console.log(err));
+} else {
+  console.log("No URI to DB");
+}
 
 app.use(express.json());
 
