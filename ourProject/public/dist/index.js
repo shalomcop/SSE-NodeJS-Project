@@ -1,7 +1,7 @@
 function handleGetUsers() {
     console.log("test");
     try {
-        fetch("/api/users/get-users")
+        fetch("/get-users")
             .then(function (res) { return res.json(); })
             .then(function (_a) {
             var users = _a.users;
@@ -24,8 +24,8 @@ function renderUsers(users) {
     try {
         if (!users)
             throw new Error("No users");
-        var html = users
-            .map(function (user) {
+        var html = "";
+        users.map(function (user) {
             return renderUser(user);
         })
             .join(" ");
@@ -41,7 +41,7 @@ function renderUsers(users) {
 function renderUser(user) {
     try {
         console.log(user);
-        return "<div class=\"userCard\">\n              <img src=\"" + user.src + "\" alt=\"user name is " + user.name + "\">\n              <p contenteditable oninput=\"handleUserNameUpdate(event, '" + user.uid + "')\">" + user.name + "</p>\n              <button onclick='handleDeleteUser(\"" + user._id + "\")'>DELETE</button>\n              <select defaultValue='student' onchange='handleUpdateUserType(event, \"" + user._id + "\")'>\n                <option value='student'>Student</option>\n                <option value='teacher'>Teacher</option>\n              </select>\n              </div>";
+        return "<div class=\"userCard\">\n              " + user.name + "            \n            </div>";
     }
     catch (error) {
         console.error(error);
@@ -65,7 +65,7 @@ function handleUserNameUpdate(ev, uid) {
         console.error(error);
     }
 }
-function handleAddUser(ev) {
+function hendelAddUser(ev) {
     try {
         ev.preventDefault();
         console.log(ev.target.elements);
@@ -76,8 +76,9 @@ function handleAddUser(ev) {
         if (!password)
             throw new Error("No Password");
         var newUser = { name: name, password: password };
+        console.log(newUser);
         //send to server:
-        fetch("/api/users/add-user", {
+        fetch("/add-user", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -107,8 +108,7 @@ function handleLogin(ev) {
         if (!password)
             throw new Error("No Password");
         var newUser = { name: name, password: password };
-        //send to server:
-        fetch("/api/users/login", {
+        fetch("/login", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -119,6 +119,7 @@ function handleLogin(ev) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            alert(data.error);
         })["catch"](function (error) {
             console.error(error);
         });

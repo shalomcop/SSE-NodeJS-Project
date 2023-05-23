@@ -7,6 +7,8 @@ var dotenv = require("dotenv"); // see https://github.com/motdotla/dotenv#how-do
 dotenv.config();
 var cookie_parser_1 = require("cookie-parser");
 var uri = process.env.MONGODB_URI;
+//static file
+app.use(express_1["default"].static("./public"));
 //to be able to get data from client add this line
 app.use(cookie_parser_1["default"]());
 if (uri) {
@@ -20,12 +22,10 @@ else {
     console.log("No URI to DB");
 }
 app.use(express_1["default"].json());
-// import usersRouter from './API/users/usersRoute';
-// app.use('/api/users', usersRouter);
-// import courseRouter from './API/courses/courseRoutes';
-// app.use('/api/courses', courseRouter);
-//static file
-app.use(express_1["default"].static("./public"));
+var usersRoute_1 = require("./API/users/usersRoute");
+app.use('/', usersRoute_1["default"]);
+// import postsRouter from './API/users/postRoute';
+// app.use('/api/posts', postRouter);
 app.listen(3000, function () {
     console.log("server listen on port 3000");
 });

@@ -16,7 +16,7 @@ export const PostSchema = new Schema({
   mainPicture:{require:true, type:String},
   mainText:{require:true, type:String},
   metaAuthorId:{require:true, type:String},
-  metaDate:{require:true, type:Date};
+  metaDate:{require:true, type:Date},
 });
 
 export const UserPostSchema = new Schema({
