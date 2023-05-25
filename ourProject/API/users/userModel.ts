@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-// import { PostSchema } from "../posts/postModel";
+import { PostSchema } from "../posts/postModel";
 //schema
 
 export interface User {
@@ -17,5 +17,6 @@ export const UserSchema = new Schema({
 });
 
 const UserModel = mongoose.model("users", UserSchema);
+
 
 export default UserModel;

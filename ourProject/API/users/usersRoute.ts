@@ -9,7 +9,7 @@ import {
   updateUserType,
   login,
   getUser
-} from "./usersControls";
+} from "./userControl";
 
 router
   .post("/add-user", addUser)
