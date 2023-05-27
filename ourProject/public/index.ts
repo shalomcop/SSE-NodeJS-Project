@@ -189,3 +189,45 @@ function handleUpdateUserType(ev: any, userId: string) {
     console.error(error);
   }
 }
+
+function handleAddPost(ev: any) {
+  try {
+    ev.preventDefault();
+    console.log(ev.target.elements)
+    const title = ev.target.elements.title.value;
+    const description = ev.target.elements.description.value;
+    const mainPicture = ev.target.elements.mainPicture.value;
+    const mainText = ev.target.elements.mainText.value;
+    const metaAuthorId = ev.target.elements.metaAuthorId.value;
+    const metaDate = ev.target.elements.metaDate.value;
+
+    if (!title) throw new Error("No title");
+    if (!description) throw new Error("No description");
+    if (!mainPicture) throw new Error ("No main picture")
+    if (!mainText) throw new Error ("NO main test");
+    if (!metaAuthorId) throw new Error ("No Author")
+    if (!metaDate) throw new Error ("no date");
+    
+    const newPost: any = { title, description, mainPicture, mainText, metaAuthorId, metaDate };
+    console.log(newPost)
+    
+    //send to server:
+    fetch("/add-post", {
+      method: "POST",
+      headers: {
+          Accept: "application/json",
+                  "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
