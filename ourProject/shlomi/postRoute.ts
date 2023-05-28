@@ -1,14 +1,14 @@
-import express from "express";
-const router = express.Router();
+// import express from "express";
+// const router = express.Router();
 
-import {
+// import {
   
-  getPost,
+//   getPost,
 
-} from "./postControl"
+// } from "./postControl"
 
-router
+// router
 
-  .get("/get-post", getPost)
+//   .get("/get-post", getPost)
 
-export default router;
+// export default router;

@@ -240,7 +240,7 @@ function handleAddPost(ev: any) {
 function handleGetPosts() {
   console.log("test");
   try {
-    fetch("/getAllPosts")
+    fetch("/getPosts")
       .then((res) => res.json())
       .then(({ posts }) => {
         try {
@@ -254,6 +254,30 @@ function handleGetPosts() {
   } catch (error) {
     console.error(error);
   }
+}
+
+function handleGetPost(Postid:string){
+  try {
+      console.log(Postid);
+  
+      fetch("/get-post", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ Postid}),
+      })
+        .then((res) => res.json())
+        .then(({ post }) => {
+          renderPost(post);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.error(error);
+    }  
 }
 
 function renderPosts(posts: Array<Post>) {
