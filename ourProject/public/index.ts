@@ -2,6 +2,8 @@
 //   selector: '#myTextarea'
 // });
 
+import { Post } from "../API/posts/postModel";
+
 interface User {
   name: string;
   password: string;
@@ -229,5 +231,59 @@ function handleAddPost(ev: any) {
       });
   } catch (error) {
     console.error(error);
+  }
+}
+
+
+
+
+function handleGetPosts() {
+  console.log("test");
+  try {
+    fetch("/getAllPosts")
+      .then((res) => res.json())
+      .then(({ posts }) => {
+        try {
+          if (!posts) throw new Error("didnt find users");
+          console.log(posts);
+          renderUsers(posts);
+        } catch (error) {
+          console.error(error);
+        }
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function renderPosts(posts: Array<Post>) {
+  try {
+    if (!posts) throw new Error("No users");
+
+    const html = ""
+    posts.map((post) => {
+        return renderPost(post);
+      })
+      .join(" ");
+    const postsElement = document.querySelector("#posts");
+    if (!postsElement) throw new Error("coundnt find users element on DOM");
+
+    postsElement.innerHTML = html;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function renderPost(post) {
+  try {
+    console.log(post);
+
+    return `<div class="PostCard">
+              ${post.title}
+                          
+            </div>`;
+  } catch (error) {
+    console.error(error);
+    return null;
   }
 }
