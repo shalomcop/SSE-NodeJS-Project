@@ -6,7 +6,7 @@ function justTest(ev:any){
   console.log("test is good");
 }
 
-function hendelAddUser(ev:any) {
+function justPost(ev:any) {
   ev.preventDefault();
   console.log("all test is very good");
 }

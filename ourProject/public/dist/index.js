@@ -4,7 +4,7 @@ function justTest(ev) {
     ev.preventDefault();
     console.log("test is good");
 }
-function hendelAddUser(ev) {
+function justPost(ev) {
     ev.preventDefault();
     console.log("all test is very good");
 }
