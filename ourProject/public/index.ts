@@ -66,9 +66,18 @@ function handleLogin(ev: any) {
   }
 }
 
-function handleAddPost(ev: any) {
+function handleAddPost (ev: any) {
   try {
-    ev.preventDefault();
+    console.log ("xxxxx");
+    console.log ("xxxxx");
+    console.log ("xxxxx");
+    console.log ("xxxxx");
+    console.log ("xxxxx");
+    console.log ("xxxxx");
+    console.log ("xxxxx");
+    console.log ("xxxxx");
+    console.log ("xxxxx");
+    console.log ("xxxxx");
     console.log(ev.target.elements)
     const title = ev.target.elements.title.value;
     const description = ev.target.elements.description.value;
@@ -117,7 +126,7 @@ function handleGetPosts() {
         try {
           if (!posts) throw new Error("didnt find users");
           console.log(posts);
-          renderUsers(posts);
+          renderPosts(posts);
         } catch (error) {
           console.error(error);
         }
