@@ -37,6 +37,6 @@ app.use('/', usersRouter);
 
 
 
-// app.listen(3000, () => {
-//   console.log("server listen on port 3000");
-// });
+app.listen(3000, () => {
+  console.log("server listen on port 3000");
+});

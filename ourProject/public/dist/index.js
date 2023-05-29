@@ -1,37 +1,41 @@
 "use strict";
 exports.__esModule = true;
-function hendelAddUser(ev) {
-    try {
-        ev.preventDefault();
-        console.log(ev.target.elements);
-        var name = ev.target.elements.name.value;
-        var password = ev.target.elements.password.value;
-        if (!name)
-            throw new Error("No name");
-        if (!password)
-            throw new Error("No Password");
-        var newUser = { name: name, password: password };
-        console.log(newUser);
-        //send to server:
-        fetch("/add-user", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newUser)
-        })
-            .then(function (res) { return res.json(); })
-            .then(function (data) {
-            console.log(data);
-        })["catch"](function (error) {
-            console.error(error);
-        });
-    }
-    catch (error) {
-        console.error(error);
-    }
+function justTest(ev) {
+    ev.preventDefault();
+    console.log("test is good");
 }
+function hendelAddUser(ev) {
+    ev.preventDefault();
+    console.log("all test is very good");
+}
+// try {
+//   console.log(ev.target.elements)
+//   const name = ev.target.elements.name.value;
+//   const password = ev.target.elements.password.value;
+//   if (!name) throw new Error("No name");
+//   if (!password) throw new Error("No Password");
+//   const newUser: any = { name, password };
+//   console.log(newUser)
+//   //send to server:
+//   fetch("/add-user", {
+//     method: "POST",
+//     headers: {
+//         Accept: "application/json",
+//                 "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(newUser),
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       console.log(data);
+//     })
+//     .catch((error) => {
+//       console.error(error);
+// });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 function handleLogin(ev) {
     try {
         ev.preventDefault();
@@ -110,13 +114,13 @@ function handleAddPost(ev) {
 function handleGetPosts() {
     console.log("test");
     try {
-        fetch("/getPosts")
+        fetch("/get-posts")
             .then(function (res) { return res.json(); })
             .then(function (_a) {
             var posts = _a.posts;
             try {
                 if (!posts)
-                    throw new Error("didnt find users");
+                    throw new Error("didnt find posts");
                 console.log(posts);
                 renderPosts(posts);
             }

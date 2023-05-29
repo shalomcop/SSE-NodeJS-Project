@@ -25,8 +25,8 @@ var usersRoute_1 = require("./API/users/usersRoute");
 app.use('/', usersRoute_1["default"]);
 // import postsRouter from './API/users/postRoute';
 // app.use('/api/posts', postRouter);
-var postRoute_1 = require("./shlomi/postRoute");
-app.use('/shlomi', postRoute_1["default"]);
+// import postRoute from './shlomi/postRoute';
+// app.use('/shlomi', postRoute);
 app.listen(3000, function () {
     console.log("server listen on port 3000");
 });
