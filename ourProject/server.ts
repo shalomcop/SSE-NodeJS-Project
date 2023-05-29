@@ -37,6 +37,6 @@ app.use('/shlomi', postRoute);
 
 
 
-app.listen(3000, () => {
-  console.log("server listen on port 3000");
-});
+// app.listen(3000, () => {
+//   console.log("server listen on port 3000");
+// });
