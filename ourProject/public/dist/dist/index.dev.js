@@ -1,71 +1,6 @@
 "use strict";
 
-function handleGetUsers() {
-  console.log("test");
-
-  try {
-    fetch("/get-users").then(function (res) {
-      return res.json();
-    }).then(function (_a) {
-      var users = _a.users;
-
-      try {
-        if (!users) throw new Error("didnt find users");
-        console.log(users);
-        renderUsers(users);
-      } catch (error) {
-        console.error(error);
-      }
-    });
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function renderUsers(users) {
-  try {
-    if (!users) throw new Error("No users");
-    var html = "";
-    users.map(function (user) {
-      return renderUser(user);
-    }).join(" ");
-    var usersElement = document.querySelector("#users");
-    if (!usersElement) throw new Error("coundnt find users element on DOM");
-    usersElement.innerHTML = html;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function renderUser(user) {
-  try {
-    console.log(user);
-    return "<div class=\"userCard\">\n              " + user.name + "            \n            </div>";
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-}
-
-function handleUserNameUpdate(ev, uid) {
-  try {
-    console.log(uid);
-    var name = ev.target.textContent;
-    fetch("/api/users/update-user-name", {
-      method: "PATCH",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: name,
-        uid: uid
-      })
-    });
-  } catch (error) {
-    console.error(error);
-  }
-}
+exports.__esModule = true;
 
 function hendelAddUser(ev) {
   try {
@@ -123,6 +58,7 @@ function handleLogin(ev) {
       return res.json();
     }).then(function (data) {
       console.log(data);
+      alert(data.error);
     })["catch"](function (error) {
       console.error(error);
     });
@@ -131,23 +67,52 @@ function handleLogin(ev) {
   }
 }
 
-function handleDeleteUser(_id) {
+function handleAddPost(ev) {
   try {
-    console.log(_id);
-    fetch("/api/users/delete-user", {
-      method: "DELETE",
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log("xxxxx");
+    console.log(ev.target.elements);
+    var title = ev.target.elements.title.value;
+    var description = ev.target.elements.description.value;
+    var mainPicture = ev.target.elements.mainPicture.value;
+    var mainText = ev.target.elements.mainText.value;
+    var metaAuthorId = ev.target.elements.metaAuthorId.value;
+    var metaDate = ev.target.elements.metaDate.value;
+    if (!title) throw new Error("No title");
+    if (!description) throw new Error("No description");
+    if (!mainPicture) throw new Error("No main picture");
+    if (!mainText) throw new Error("NO main test");
+    if (!metaAuthorId) throw new Error("No Author");
+    if (!metaDate) throw new Error("no date");
+    var newPost = {
+      title: title,
+      description: description,
+      mainPicture: mainPicture,
+      mainText: mainText,
+      metaAuthorId: metaAuthorId,
+      metaDate: metaDate
+    };
+    console.log(newPost); //send to server:
+
+    fetch("/add-post", {
+      method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        _id: _id
-      })
+      body: JSON.stringify(newPost)
     }).then(function (res) {
       return res.json();
-    }).then(function (_a) {
-      var users = _a.users;
-      renderUsers(users);
+    }).then(function (data) {
+      console.log(data);
     })["catch"](function (error) {
       console.error(error);
     });
@@ -156,30 +121,74 @@ function handleDeleteUser(_id) {
   }
 }
 
-function handleUpdateUserType(ev, userId) {
+function handleGetPosts() {
+  console.log("test");
+
   try {
-    var userType = ev.target.value;
-    console.log(userType);
-    fetch("/api/users/update-user-type", {
-      method: "PATCH",
+    fetch("/getPosts").then(function (res) {
+      return res.json();
+    }).then(function (_a) {
+      var posts = _a.posts;
+
+      try {
+        if (!posts) throw new Error("didnt find users");
+        console.log(posts);
+        renderPosts(posts);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function handleGetPost(Postid) {
+  try {
+    console.log(Postid);
+    fetch("/get-post", {
+      method: "GET",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        userId: userId,
-        userType: userType
+        Postid: Postid
       })
     }).then(function (res) {
       return res.json();
     }).then(function (_a) {
-      var users = _a.users;
-      renderUsers(users);
+      var post = _a.post;
+      renderPost(post);
     })["catch"](function (error) {
       console.error(error);
     });
-    ;
   } catch (error) {
     console.error(error);
+  }
+}
+
+function renderPosts(posts) {
+  try {
+    if (!posts) throw new Error("No users");
+    var html = "";
+    posts.map(function (post) {
+      return renderPost(post);
+    }).join(" ");
+    var postsElement = document.querySelector("#posts");
+    if (!postsElement) throw new Error("coundnt find users element on DOM");
+    postsElement.innerHTML = html;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function renderPost(post) {
+  try {
+    console.log(post);
+    return "<div class=\"PostCard\">\n              " + post.title + "\n                          \n            </div>";
+  } catch (error) {
+    console.error(error);
+    return null;
   }
 }

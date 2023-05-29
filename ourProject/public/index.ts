@@ -68,16 +68,7 @@ function handleLogin(ev: any) {
 
 function handleAddPost (ev: any) {
   try {
-    console.log ("xxxxx");
-    console.log ("xxxxx");
-    console.log ("xxxxx");
-    console.log ("xxxxx");
-    console.log ("xxxxx");
-    console.log ("xxxxx");
-    console.log ("xxxxx");
-    console.log ("xxxxx");
-    console.log ("xxxxx");
-    console.log ("xxxxx");
+    ev.preventDefault()
     console.log(ev.target.elements)
     const title = ev.target.elements.title.value;
     const description = ev.target.elements.description.value;

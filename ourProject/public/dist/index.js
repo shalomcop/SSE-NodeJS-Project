@@ -65,16 +65,7 @@ function handleLogin(ev) {
 }
 function handleAddPost(ev) {
     try {
-        console.log("xxxxx");
-        console.log("xxxxx");
-        console.log("xxxxx");
-        console.log("xxxxx");
-        console.log("xxxxx");
-        console.log("xxxxx");
-        console.log("xxxxx");
-        console.log("xxxxx");
-        console.log("xxxxx");
-        console.log("xxxxx");
+        ev.preventDefault();
         console.log(ev.target.elements);
         var title = ev.target.elements.title.value;
         var description = ev.target.elements.description.value;
