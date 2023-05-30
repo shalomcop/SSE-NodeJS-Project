@@ -7,7 +7,7 @@ exports.PostSchema = new mongoose_1.Schema({
     title: { require: true, type: String },
     description: { require: true, type: String },
     mainPicture: { require: true, type: String },
-    mainText: { require: true, type: String },
+    post: { require: true, type: String },
     metaAuthorId: { require: true, type: String },
     metaDate: { require: true, type: Date }
 });

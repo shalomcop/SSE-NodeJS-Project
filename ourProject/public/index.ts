@@ -1,44 +1,37 @@
 import { Post } from "../API/posts/postModel";
 import { User } from "../API/users/userModel";
 
-function justTest(ev:any){
-  ev.preventDefault();
-  console.log("test is good");
-}
-
-function justPost(ev:any) {
-  ev.preventDefault();
-  console.log("all test is very good");
-}
-  // try {
-  //   console.log(ev.target.elements)
-  //   const name = ev.target.elements.name.value;
-  //   const password = ev.target.elements.password.value;
-  //   if (!name) throw new Error("No name");
-  //   if (!password) throw new Error("No Password");
-  //   const newUser: any = { name, password };
-  //   console.log(newUser)
+function hendelAddUser(ev: any) {
+  try {
+    ev.preventDefault();
+    console.log(ev.target.elements)
+    const name = ev.target.elements.name.value;
+    const password = ev.target.elements.password.value;
+    if (!name) throw new Error("No name");
+    if (!password) throw new Error("No Password");
+    const newUser: any = { name, password };
+    console.log(newUser)
     
-  //   //send to server:
-  //   fetch("/add-user", {
-  //     method: "POST",
-  //     headers: {
-  //         Accept: "application/json",
-  //                 "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(newUser),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-      // });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+    //send to server:
+    fetch("/add-user", {
+      method: "POST",
+      headers: {
+          Accept: "application/json",
+                  "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 function handleLogin(ev: any): void {
   try {
@@ -80,18 +73,18 @@ function handleAddPost (ev: any) {
     const title = ev.target.elements.title.value;
     const description = ev.target.elements.description.value;
     const mainPicture = ev.target.elements.mainPicture.value;
-    const mainText = ev.target.elements.mainText.value;
+    const post = ev.target.elements.post.value;
     const metaAuthorId = ev.target.elements.metaAuthorId.value;
     const metaDate = ev.target.elements.metaDate.value;
 
     if (!title) throw new Error("No title");
     if (!description) throw new Error("No description");
     if (!mainPicture) throw new Error ("No main picture")
-    if (!mainText) throw new Error ("NO main test");
+    if (!post) throw new Error ("NO post");
     if (!metaAuthorId) throw new Error ("No Author")
     if (!metaDate) throw new Error ("no date");
     
-    const newPost: any = { title, description, mainPicture, mainText, metaAuthorId, metaDate };
+    const newPost: any = { title, description, mainPicture, post, metaAuthorId, metaDate };
     console.log(newPost)
     
     //send to server:

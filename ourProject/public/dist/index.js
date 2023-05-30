@@ -1,41 +1,37 @@
 "use strict";
 exports.__esModule = true;
-function justTest(ev) {
-    ev.preventDefault();
-    console.log("test is good");
+function hendelAddUser(ev) {
+    try {
+        ev.preventDefault();
+        console.log(ev.target.elements);
+        var name = ev.target.elements.name.value;
+        var password = ev.target.elements.password.value;
+        if (!name)
+            throw new Error("No name");
+        if (!password)
+            throw new Error("No Password");
+        var newUser = { name: name, password: password };
+        console.log(newUser);
+        //send to server:
+        fetch("/add-user", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newUser)
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+            console.log(data);
+        })["catch"](function (error) {
+            console.error(error);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
-function justPost(ev) {
-    ev.preventDefault();
-    console.log("all test is very good");
-}
-// try {
-//   console.log(ev.target.elements)
-//   const name = ev.target.elements.name.value;
-//   const password = ev.target.elements.password.value;
-//   if (!name) throw new Error("No name");
-//   if (!password) throw new Error("No Password");
-//   const newUser: any = { name, password };
-//   console.log(newUser)
-//   //send to server:
-//   fetch("/add-user", {
-//     method: "POST",
-//     headers: {
-//         Accept: "application/json",
-//                 "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(newUser),
-//   })
-//     .then((res) => res.json())
-//     .then((data) => {
-//       console.log(data);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-// });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
 function handleLogin(ev) {
     try {
         ev.preventDefault();
@@ -74,7 +70,7 @@ function handleAddPost(ev) {
         var title = ev.target.elements.title.value;
         var description = ev.target.elements.description.value;
         var mainPicture = ev.target.elements.mainPicture.value;
-        var mainText = ev.target.elements.mainText.value;
+        var post = ev.target.elements.post.value;
         var metaAuthorId = ev.target.elements.metaAuthorId.value;
         var metaDate = ev.target.elements.metaDate.value;
         if (!title)
@@ -83,13 +79,13 @@ function handleAddPost(ev) {
             throw new Error("No description");
         if (!mainPicture)
             throw new Error("No main picture");
-        if (!mainText)
-            throw new Error("NO main test");
+        if (!post)
+            throw new Error("NO post");
         if (!metaAuthorId)
             throw new Error("No Author");
         if (!metaDate)
             throw new Error("no date");
-        var newPost = { title: title, description: description, mainPicture: mainPicture, mainText: mainText, metaAuthorId: metaAuthorId, metaDate: metaDate };
+        var newPost = { title: title, description: description, mainPicture: mainPicture, post: post, metaAuthorId: metaAuthorId, metaDate: metaDate };
         console.log(newPost);
         //send to server:
         fetch("/add-post", {

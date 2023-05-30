@@ -29,14 +29,11 @@ app.use(express.json());
 import usersRouter from './API/users/usersRoute';
 app.use('/', usersRouter);
 
-// import postsRouter from './API/users/postRoute';
-// app.use('/api/posts', postRouter);
-
-// import postRoute from './shlomi/postRoute';
-// app.use('/shlomi', postRoute);
+import postsRouter from './API/posts/postRoute';
+app.use('/api/posts', postsRouter);
 
 
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("server listen on port 3000");
 });
