@@ -1,6 +1,15 @@
 import { Post } from "../API/posts/postModel";
 import { User } from "../API/users/userModel";
 
+// let value:any = ""
+// const queryString = window.location.search;
+// const urlParams = new URLSearchParams(queryString);
+// value = urlParams.get('value');
+// console.log(value)
+// if (value == handleGetPosts) {
+//   handleGetPosts()
+// }
+
 function hendelAddUser(ev: any) {
   try {
     ev.preventDefault();
@@ -60,7 +69,7 @@ function handleLogin(ev: any): void {
             alert(data.error);
           }
           else {
-            window.location.href = "homepage.html";
+           window.location.href = "/homepage.html"
           }
         })
         .catch((error) => {
@@ -105,7 +114,8 @@ function handleAddPost (ev: any) {
       .then((data) => {
         console.log(data);
         if (data)
-        window.location.href = "homepage.html";
+        // window.location.href = "homepage.html";
+        handleGetPosts()
       })
       .catch((error) => {
         console.error(error);
@@ -161,18 +171,19 @@ function handleGetPost(Postid:string){
 }
 
 function renderPosts(posts: Array<Post>) {
+  console.log("test2");
   try {
     if (!posts) throw new Error("No users");
-
     const html = ""
     posts.map((post) => {
-        return renderPost(post);
+       return renderPost(post);
       })
       .join(" ");
     const postsElement = document.querySelector("#posts");
     if (!postsElement) throw new Error("coundnt find users element on DOM");
-
+      console.log(posts)
     postsElement.innerHTML = html;
+    
   } catch (error) {
     console.error(error);
   }
@@ -193,6 +204,7 @@ function renderPosts(posts: Array<Post>) {
 // }
 
 function renderPost(post){
+  console.log("test3");
   try {
       if (!post)
         throw new Error("NO post");
@@ -210,6 +222,8 @@ function renderPost(post){
         
       // const html = tempUserProfiles
         //  .map((users) => {
+
+        console.log(post.mainPicture)
           return `
           <div class="boxMain__container__boxes roommateDiv roommatePage__container">
           <img class="boxMain__container__boxes__img"
