@@ -29,8 +29,8 @@ app.use(express.json());
 import usersRouter from './API/users/usersRoute';
 app.use('/', usersRouter);
 
-import postsRouter from './API/posts/postRoute';
-app.use('/api/posts', postsRouter);
+import postRouter from './API/posts/postRoute';
+app.use('/', postRouter);
 
 
 

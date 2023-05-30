@@ -24,7 +24,7 @@ app.use(express_1["default"].json());
 var usersRoute_1 = require("./API/users/usersRoute");
 app.use('/', usersRoute_1["default"]);
 var postRoute_1 = require("./API/posts/postRoute");
-app.use('/api/posts', postRoute_1["default"]);
+app.use('/', postRoute_1["default"]);
 app.listen(3001, function () {
     console.log("server listen on port 3000");
 });
