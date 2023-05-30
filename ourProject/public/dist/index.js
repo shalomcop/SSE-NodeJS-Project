@@ -177,13 +177,39 @@ function renderPosts(posts) {
         console.error(error);
     }
 }
+// function renderPost(post) {
+//   try {
+//     console.log(post);
+//     return `<div class="PostCard">
+//               ${post.title}
+//             </div>`;
+//   } catch (error) {
+//     console.error(error);
+//     return null;
+//   }
+// }
 function renderPost(post) {
     try {
-        console.log(post);
-        return "<div class=\"PostCard\">\n              " + post.title + "\n                          \n            </div>";
+        if (!post)
+            throw new Error("NO post");
+        // let tempPost:Post[] = []
+        // console.log(`indexStart ${indexStart} indexEnd ${indexEnd}`);
+        // for(let i = indexStart; i < indexEnd; i++){
+        //     tempUserProfiles.push(users[i])
+        //   }
+        // console.log('tempUserProfiles');
+        // console.log(tempUserProfiles);
+        // const html = tempUserProfiles
+        //  .map((users) => {
+        return "\n          <div class=\"boxMain__container__boxes roommateDiv roommatePage__container\">\n          <img class=\"boxMain__container__boxes__img\"\n           src= " + post.mainPicture + " alt=\"roommate Img\">\n          <h4>" + post.title + "</h4>\n          <p>Area: " + post.description + "</p>\n          <p>Rooms: up to " + post.metaAuthorId + "</p>\n          <p>floor: up to " + post.metaDate + "</p>\n          </div>\n          ";
+        // })
+        // .join(" ");
+        // console.log(`html ${html}`);
+        // const element = document.querySelector(".roommate");
+        // if (!element) throw new Error("Couldnt find element in the DOM");
+        // element.innerHTML = html;
     }
     catch (error) {
         console.error(error);
-        return null;
     }
 }

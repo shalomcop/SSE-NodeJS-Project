@@ -178,16 +178,56 @@ function renderPosts(posts: Array<Post>) {
   }
 }
 
-function renderPost(post) {
-  try {
-    console.log(post);
+// function renderPost(post) {
+//   try {
+//     console.log(post);
 
-    return `<div class="PostCard">
-              ${post.title}
+//     return `<div class="PostCard">
+//               ${post.title}
                           
-            </div>`;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
+//             </div>`;
+//   } catch (error) {
+//     console.error(error);
+//     return null;
+//   }
+// }
+
+function renderPost(post){
+  try {
+      if (!post)
+        throw new Error("NO post");
+      
+      // let tempPost:Post[] = []
+      
+      // console.log(`indexStart ${indexStart} indexEnd ${indexEnd}`);
+      
+      // for(let i = indexStart; i < indexEnd; i++){
+      //     tempUserProfiles.push(users[i])
+      //   }
+      // console.log('tempUserProfiles');
+      // console.log(tempUserProfiles);
+      
+        
+      // const html = tempUserProfiles
+        //  .map((users) => {
+          return `
+          <div class="boxMain__container__boxes roommateDiv roommatePage__container">
+          <img class="boxMain__container__boxes__img"
+           src= ${post.mainPicture} alt="roommate Img">
+          <h4>${post.title}</h4>
+          <p>Area: ${post.description}</p>
+          <p>Rooms: up to ${post.metaAuthorId}</p>
+          <p>floor: up to ${post.metaDate}</p>
+          </div>
+          `;
+        // })
+        // .join(" ");
+      // console.log(`html ${html}`);
+      // const element = document.querySelector(".roommate");
+      // if (!element) throw new Error("Couldnt find element in the DOM");
+      // element.innerHTML = html;
+
+    } catch (error) {
+      console.error(error);
+    }
 }

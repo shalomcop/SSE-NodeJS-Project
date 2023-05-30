@@ -6,11 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./dist/index.js"></script>
     <link rel="stylesheet" href="./dist/login.css">
+    <link rel="stylesheet" href="./dist/homepage.css">
     <title>Document</title>
 </head>
 <body>
-    <a href="./login.html">login</a> <br><br>
-    <a href="./postAdmin.html">Add your posts</a><br><br>
-    <a href="./posts.html">See all posts</a><br><br>
+
+    <div class="header box">
+        <div class="header__container container">
+            <div class="log-reg">
+                <a class="header__container__a" href="./login.html">Login</a>
+                <a class="header__container__a" href="./registartion.html">Regisration</a>
+            </div>
+    
+            <nav>
+                <a class="header__container__a" href="./homepage.html">Homepage</a>
+                <a class="header__container__a" href="./postAdmin.html">Add post</a>
+            </nav>
+        </div>
+    </div>
+
+    <div id="containerBox">
+        <div class="boxMain box">
+            <div class="halfBlue"></div>
+            <div class="boxMain__container box roommate">
+                <!-- the roommate show from typescript -->
+            </div>
+
+        </div>
+
+
+        <div class="btnDiv">
+            <button class="btnDiv__btn roommateBtn">Go to roommate page</button>
+        </div>    
+        
+      
+    
+    <div id="details" class="detail" style="display: none">
+        <div class="halfBlue"></div>
+    </div>
+
+    
+
 </body>
 </html>
