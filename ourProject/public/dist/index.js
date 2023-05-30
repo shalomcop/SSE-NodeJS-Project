@@ -54,7 +54,12 @@ function handleLogin(ev) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            alert(data.error);
+            if (data.error) {
+                alert(data.error);
+            }
+            else {
+                window.location.href = "homepage.html";
+            }
         })["catch"](function (error) {
             console.error(error);
         });
@@ -99,6 +104,8 @@ function handleAddPost(ev) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            if (data)
+                window.location.href = "homepage.html";
         })["catch"](function (error) {
             console.error(error);
         });

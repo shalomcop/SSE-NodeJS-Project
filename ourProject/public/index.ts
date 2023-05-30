@@ -56,7 +56,12 @@ function handleLogin(ev: any): void {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          alert(data.error);
+          if (data.error){
+            alert(data.error);
+          }
+          else {
+            window.location.href = "homepage.html";
+          }
         })
         .catch((error) => {
           console.error(error);
@@ -99,6 +104,8 @@ function handleAddPost (ev: any) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data)
+        window.location.href = "homepage.html";
       })
       .catch((error) => {
         console.error(error);
