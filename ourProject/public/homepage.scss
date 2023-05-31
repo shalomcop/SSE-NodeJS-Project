@@ -31,7 +31,7 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .box{
@@ -92,25 +92,30 @@ body{
 .container{
     width: 100%;
     margin: 0 auto;
+
 }
 
 #containerBox{
     top: 5px;
+    width: 1700px;
+    margin-left: 20%;
+
 }
 .boxMain{
     
-    min-height: 300px;
+    min-height: 700px;
     // background: var(--white);
     position: relative;
     top: 40px;
 
     &__container{
         display: flex;
+        flex-direction: column;
         margin: auto;
         // position: relative;
-        max-width: 1200px;
+        max-width: 1600px;
         justify-content: space-between;     
-        max-height: 300px;
+        max-height: 500px;
         min-height: inherit;
         padding: 32px;
         color: var(--blue);
@@ -120,8 +125,8 @@ body{
 
 
         &__boxes{
-            width: 352px;
-            height: 236px;
+            max-width: 1012px;
+            min-height:300px;
             background-color: rgba(255, 255, 255, 0.85);
             border-radius: 5px ;
             text-align: center;
@@ -129,6 +134,7 @@ body{
             box-shadow: 9px 8px 15px 8px var(--dark); 
             box-shadow: 9px 8px 15px 8px var(--dark);
             z-index: 99;   
+            
             
             
 
@@ -145,8 +151,8 @@ body{
     margin-left: 80px;
     display: grid;
     grid-template-rows: 90%;
-    grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(2, 300px);
+    grid-template-columns: repeat(2, 100px);
+    grid-template-rows: repeat(1, 300px);
     row-gap: 100px;
     column-gap: 300px;
 
@@ -156,7 +162,7 @@ body{
     margin-left: 80px;
     display: grid;
     grid-template-rows: 90%;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(2, 100px);
     grid-template-rows: repeat(2, 300px);
     row-gap: 100px;
     column-gap: 300px;
@@ -229,7 +235,7 @@ p{
     // margin-left: 40px;
     min-height: 700px;
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    grid-template-columns: repeat(2, 100px);
     gap: 1rem;
     z-index: 99;  
     opacity: 1;

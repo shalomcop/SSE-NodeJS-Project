@@ -32,6 +32,9 @@ function hendelAddUser(ev) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            if (!data.error) {
+                window.location.href = "./homepage.html";
+            }
         })["catch"](function (error) {
             console.error(error);
         });
@@ -219,7 +222,7 @@ function renderPost(post) {
         // const html = tempUserProfiles
         //  .map((users) => {
         // console.log(post.mainPicture)
-        var html = "<div class=\"boxMain__container__boxes roommateDiv roommatePage__container\">\n          <img class=\"boxMain__container__boxes__img\"\n           src= " + post.mainPicture + " alt=\"post Img\">\n          <h4>" + post.title + "</h4>\n          <p>" + post.description + "</p>\n          <p>" + post.metaAuthorId + "</p>\n          <p>" + post.metaDate + "</p>\n          </div>";
+        var html = "<div class=\"boxMain__container__boxes roommateDiv roommatePage__container roommate\">\n          <img class=\"boxMain__container__boxes__img\"\n           src= " + post.mainPicture + " alt=\"post Img\">\n          <h4>" + post.title + "</h4>\n          <p>" + post.description + "</p>\n          <p>" + post.metaAuthorId + "</p>\n          <p>" + post.metaDate + "</p>\n          </div>\n         \n         <span></span>";
         console.log(html);
         return html;
         // })

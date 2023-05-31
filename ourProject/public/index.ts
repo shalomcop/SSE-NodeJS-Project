@@ -33,6 +33,9 @@ function hendelAddUser(ev: any) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if(!data.error){
+          window.location.href = "./homepage.html"
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -180,7 +183,7 @@ function renderPosts(posts: Array<Post>) {
     //    })
     //   .join(" ");
 
-
+    
     const html = posts
       .map((post) => {
         return renderPost(post);
@@ -233,14 +236,16 @@ function renderPost(post){
 
         // console.log(post.mainPicture)
           const html =  
-          `<div class="boxMain__container__boxes roommateDiv roommatePage__container">
+          `<div class="boxMain__container__boxes roommateDiv roommatePage__container roommate">
           <img class="boxMain__container__boxes__img"
            src= ${post.mainPicture} alt="post Img">
           <h4>${post.title}</h4>
           <p>${post.description}</p>
           <p>${post.metaAuthorId}</p>
           <p>${post.metaDate}</p>
-          </div>`;
+          </div>
+         
+         <span></span>` ;
           console.log(html)
           return html
 
