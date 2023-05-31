@@ -173,8 +173,13 @@ function renderPosts(posts) {
     try {
         if (!posts)
             throw new Error("No users");
-        var html = "";
-        posts.map(function (post) {
+        // const html = 
+        //     posts.map((post) => {
+        //        return renderPost(post);
+        //    })
+        //   .join(" ");
+        var html = posts
+            .map(function (post) {
             return renderPost(post);
         })
             .join(" ");
@@ -213,8 +218,10 @@ function renderPost(post) {
         // console.log(tempUserProfiles);
         // const html = tempUserProfiles
         //  .map((users) => {
-        console.log(post.mainPicture);
-        return "\n          <div class=\"boxMain__container__boxes roommateDiv roommatePage__container\">\n          <img class=\"boxMain__container__boxes__img\"\n           src= " + post.mainPicture + " alt=\"roommate Img\">\n          <h4>" + post.title + "</h4>\n          <p>Area: " + post.description + "</p>\n          <p>Rooms: up to " + post.metaAuthorId + "</p>\n          <p>floor: up to " + post.metaDate + "</p>\n          </div>\n          ";
+        // console.log(post.mainPicture)
+        var html = "<div class=\"boxMain__container__boxes roommateDiv roommatePage__container\">\n          <img class=\"boxMain__container__boxes__img\"\n           src= " + post.mainPicture + " alt=\"post Img\">\n          <h4>" + post.title + "</h4>\n          <p>" + post.description + "</p>\n          <p>" + post.metaAuthorId + "</p>\n          <p>" + post.metaDate + "</p>\n          </div>";
+        console.log(html);
+        return html;
         // })
         // .join(" ");
         // console.log(`html ${html}`);

@@ -33,7 +33,7 @@ import postRouter from './API/posts/postRoute';
 app.use('/', postRouter);
 
 
-
-app.listen(3001, () => {
-  console.log("server listen on port 3000");
+const POST = 3002
+app.listen(POST, () => {
+  console.log(`server listen on port ${POST}`);
 });

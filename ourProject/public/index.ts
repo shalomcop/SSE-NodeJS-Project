@@ -174,12 +174,20 @@ function renderPosts(posts: Array<Post>) {
   console.log("test2");
   try {
     if (!posts) throw new Error("No users");
-    const html = ""
-    posts.map((post) => {
-       return renderPost(post);
+    // const html = 
+    //     posts.map((post) => {
+    //        return renderPost(post);
+    //    })
+    //   .join(" ");
+
+
+    const html = posts
+      .map((post) => {
+        return renderPost(post);
       })
       .join(" ");
-    const postsElement = document.querySelector("#posts");
+
+  const postsElement = document.querySelector("#posts");
     if (!postsElement) throw new Error("coundnt find users element on DOM");
       console.log(posts)
     postsElement.innerHTML = html;
@@ -223,17 +231,19 @@ function renderPost(post){
       // const html = tempUserProfiles
         //  .map((users) => {
 
-        console.log(post.mainPicture)
-          return `
-          <div class="boxMain__container__boxes roommateDiv roommatePage__container">
+        // console.log(post.mainPicture)
+          const html =  
+          `<div class="boxMain__container__boxes roommateDiv roommatePage__container">
           <img class="boxMain__container__boxes__img"
-           src= ${post.mainPicture} alt="roommate Img">
+           src= ${post.mainPicture} alt="post Img">
           <h4>${post.title}</h4>
-          <p>Area: ${post.description}</p>
-          <p>Rooms: up to ${post.metaAuthorId}</p>
-          <p>floor: up to ${post.metaDate}</p>
-          </div>
-          `;
+          <p>${post.description}</p>
+          <p>${post.metaAuthorId}</p>
+          <p>${post.metaDate}</p>
+          </div>`;
+          console.log(html)
+          return html
+
         // })
         // .join(" ");
       // console.log(`html ${html}`);
