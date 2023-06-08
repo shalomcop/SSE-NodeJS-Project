@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./dist/index.js" defer></script>
-    <link rel="stylesheet" href="./dist/login.css">
+    <!-- <link rel="stylesheet" href="./dist/sytle.css"> -->
+    <link rel="stylesheet" href="./dist/postAdmin.css">
+    <!-- <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> -->
     <title>Login</title>
 </head>
 <body>
@@ -23,14 +24,42 @@
             </nav>
         </div>
     </div>
-    <form action="#" onsubmit="handleAddPost(event)">
-        <input type="text" name="title" placeholder="Enter your title here" required> <br><br>
-        <input type="text" name="description" placeholder="Enter your description here" required> <br><br>
-        <input type="text" name="mainPicture" placeholder="Enter your picture's url" required> <br><br>
-        <input type="text" name="post" placeholder="Enter your post here" required> <br><br>
-        <input type="text" name="metaAuthorId" placeholder="AuthorId" required> <br><br>
-        <input type="date" name="metaDate" placeholder="Enter the current date" required> <br><br>
-        <button type="submit">Submit your post</button>
-    </form>
+
+    <div class="container1">
+        <div class="forms formspost">
+            <div class="form login">
+                <span class="title">Add Post</span>
+                <form action="#" onsubmit="handleSAddPost(event)">
+                    <div class="input-field">
+                        <input type="text" name="title" placeholder="Enter your title here" required>                       
+                         <!-- <i class="input-field__uil uil-envelope icon"></i> -->
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="description" placeholder="Enter your description here" required>
+                    </div>                   
+
+                    <div class="input-field">
+                        <input type="text" name="mainPicture" placeholder="Enter your picture's url" required> <br><br>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="post" placeholder="Enter your post here" required> <br><br>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" name="metaAuthorId" placeholder="AuthorId" required> <br><br>
+                    </div>
+                    <div class="input-field">
+                        <input type="date" name="metaDate" placeholder="Enter the current date" required> <br><br>
+                    </div>
+                    <!-- </div> -->
+                    <!-- <button type="submit">Submit your post</button> -->
+                    <div class="input-field button">
+                        <input type="submit" value="Submit your post" id="myButton">
+
+                </form>
+            
+            </div>
+        </div>
+    </div>
+    <script src="./dist/index.js"></script>
 </body>
 </html>
